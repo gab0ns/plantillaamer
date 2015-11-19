@@ -1,0 +1,86 @@
+@charset "UTF-8";
+*{
+    margin:0;
+    padding:0;
+}
+
+body,html{
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#content{
+    width: 100%;
+    margin:0 auto 0 auto;
+}
+
+#logo {
+    width: 550px;
+    margin: 5px auto 0 auto;
+    min-height:531px;
+}
+
+#logo img{
+    display: inline-block;
+    margin-left: 25px 
+}
+
+#logo .colors{
+    width: 500px;
+    display: relative;
+}
+
+#intree {
+    z-index: 300;
+    position:relative;
+    width: 550px;
+    margin:0 auto 0 auto;
+    top: 8px;
+}
+
+#intree a {
+    display:block;
+}
+#intree a p {
+    display:inline-block;
+}
+#intree a button {
+    cursor: pointer;
+}
+
+#outtree {
+    margin: 60px auto 0 auto;
+    text-align: center;
+    min-width: 600px;
+}
+
+#outtree a{
+    display: inline-block;
+    color:#41291c;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px #96bf0d solid;
+    font-weight:600;
+    width: auto;
+}
+#outtree a p{
+    display: inline-block;
+}
+#outtree a button{
+    cursor: pointer;
+}
+
+#outtree a:hover{
+   color:#96bf0d;
+   border-bottom: 2px #41291c solid;
+}
+
+#admin_login {
+    width: 300px;
+    margin: 0 auto 0 auto;
+}

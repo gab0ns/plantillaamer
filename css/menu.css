@@ -1,0 +1,395 @@
+@charset "UTF-8";
+*{
+    margin:0;
+    padding:0;
+}
+
+body,html{
+    margin:0;
+    padding:0;
+}
+
+.ui-tooltip{
+    color:#41291c !important;
+    border-color:#96bf0d !important;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#content{
+    width: 100%;
+    margin:0 auto 0 auto;
+
+}
+
+#logo {
+    width: 480px;
+    margin: 5px auto 5px auto;
+}
+
+#logo .logo {
+    min-height: 514px;
+    max-height: 514px;
+}
+
+#logo div img{
+    display: inline-block;
+}
+
+#logo .imgL {
+    z-index:-1000;
+}
+
+#logo .posI{
+    display:block;
+    position:absolute;
+    cursor: pointer;
+}
+
+#intree {
+    z-index: 300;
+    position:absolute;
+    width: 480px;
+    margin:0 auto 0 auto;
+    top: 5px;
+}
+
+#intree li {
+    cursor:pointer;
+    list-style: none;
+}
+
+
+#intree li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+#intree button {
+    cursor: pointer;
+}
+
+#outtree {
+    margin: 40px auto 0 auto;
+    text-align: center;
+    min-width: 600px;
+}
+
+#outtree li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 7px 0 7px;
+}
+
+#outtree li a{
+    display: inline-block;
+    color:#41291c;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px #96bf0d solid;
+    font-weight:600;
+    width: auto;
+}
+
+#outtree li a:hover{
+   color:#96bf0d;
+   border-bottom: 2px #41291c solid;
+}
+
+#contenido {
+    z-index: 1500;
+    overflow:auto;
+    max-height:545px;
+    min-height:585px;
+    width:80%;
+    margin: 0 auto 0 auto;
+    display:none;
+    box-shadow:0px 0px 8px #555;
+    top:15px;
+    position:absolute;
+    background-color:#FFF;
+    left:10%;
+    padding:10px;
+}
+
+#contenido > p {
+	margin:10px;
+}
+
+#contenido object {
+    min-height:565px;
+}
+#cursorOut{
+    display:none;
+    position:absolute;
+    border: 2px #72a7cf solid;
+    color:#123567;
+    margin:5px;
+    padding:8px 8px 8px 8px;
+}
+
+#cursorOut span{
+    display:inline-block;
+}
+
+#close {
+    position:absolute;
+    color:#2eaadc;
+    font-size:1.5em;
+    display:none;
+    cursor:pointer;
+    right:10%;
+    margin:-5px -23px 0 0;
+    width:25px;
+    height:25px;
+    font-weight:600;
+    border:none;
+    background-color:transparent;
+    z-index:9000;
+}
+
+#dialog #edit_menu input,select{
+    width: 300px;
+    float:right;
+}
+
+#dialog #edit_menu div{
+    margin:10px 0 0 0;
+    clear:both;
+}
+
+#dialog #edit_menu #imageTree img{
+    display:block;
+    margin: 20px 0 0 60px;
+}
+#dialog #edit_submenu input,select{
+    width: 300px;
+    float:right;
+}
+
+#dialog #edit_submenu div{
+    margin:10px 0 0 0;
+    clear:both;
+}
+
+#dialog #edit_submenu div p{
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+#dialog #edit_submenu textarea{
+    width: 760px;
+    height:300px;
+}
+
+
+/****************DIVIDE***********/
+.new-tree{
+    width: 480px;
+    height: 514px;
+    cursor: pointer;
+    background-size: 100%;
+}
+
+.image-block{
+    max-width:100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+/****************DIVIDE***********/
+
+/************BLUE*****************/
+.blue{
+   color:#13235b !important;
+   border-bottom: 1px #2eaadc solid !important;
+}
+
+.blue:hover{
+   color:#2eaadc !important;
+   border-bottom: 2px #13235b solid !important;
+}
+
+.blue.enlace {
+   color:#2eaadc !important;
+   border-bottom: 2px #13235b solid !important;
+}
+.tooltip-blue{
+    border-color:#2eaadc !important;
+    color:#13235b !important;
+}
+
+.blue-button-close{
+    color:#13235b !important;
+    border-color:#2eaadc !important;
+}
+/************BLUE*****************/
+
+
+
+
+/***********GREEN***************/
+.green{
+   color:#41291c !important;
+   border-bottom: 1px #38a962 solid !important;
+}
+
+.green:hover{
+   color:#38a962 !important;
+   border-bottom: 2px #41291c solid !important;
+}
+
+.green.enlace {
+   color:#38a962 !important;
+   border-bottom: 2px #41291c solid !important;
+}
+.tooltip-green{
+    color:#41291c !important;
+    border-color:#38a962 !important;
+}
+
+.green-button-close{
+    color: #41291c !important;
+    border-color: #38a962 !important;
+}
+/***********GREEN***************/
+
+
+
+
+/***********GREENYELLOW*********/
+.greenyellow{
+   color:#41291c !important;
+   border-bottom: 1px #96bf0d solid !important;
+}
+
+.greenyellow:hover{
+   color:#96bf0d !important;
+   border-bottom: 2px #41291c solid !important;
+}
+
+.greenyellow.enlace {
+   color:#96bf0d !important;
+   border-bottom: 2px #41291c solid !important;
+}
+.tooltip-greenyellow{
+    color:#41291c !important;
+    border-color:#96bf0d !important;
+}
+
+.greenyellow-button-close{
+    color: #41291c !important;
+    border-color: #96bf0d !important;
+}
+/***********GREENYELLOW*********/
+
+
+
+
+/*************RED****************/
+.red{
+   color:#05368b !important;
+   border-bottom: 1px #bd0926 solid !important;
+}
+
+.red:hover{
+   color:#bd0926 !important;
+   border-bottom: 2px #05368b solid !important;
+}
+
+.red.enlace {
+   color:#bd0926 !important;
+   border-bottom: 2px #05368b solid !important;
+}
+.tooltip-red{
+    color:#05368b !important;
+    border-color:#bd0926 !important;
+}
+
+.red-button-close{
+    color: #05368b !important;
+    border-color: #bd0926 !important;
+}
+/*************RED****************/
+
+
+
+
+/*************TWOGREEN************/
+.twogreen{
+   color:#41291c !important;
+   border-bottom: 1px #a9c604 solid !important;
+}
+
+.twogreen:hover{
+   color:#38a962 !important;
+   border-bottom: 2px #a9c604 solid !important;
+}
+
+.twogreen.enlace {
+   color:#38a962 !important;
+   border-bottom: 2px #a9c604 solid !important;
+}
+.tooltip-twogreen{
+    color:#41291c !important;
+    border-color:#38a962 !important;
+}
+
+.twogreen-button-close{
+    color: #38a962 !important;
+    border-color: #a9c604 !important;
+}
+/*************TWOGREEN************/
+
+#intree .deleteM{
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    position: relative;
+    float: right;
+    margin:30px -30px 0 0;
+}
+
+#intree .editM{
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    font-size:1.3em;
+    position: relative;
+    float:right;
+    margin:30px -13px 0 0;
+}
+
+#intree li{
+    clear:both;
+}
+
+.add-menu{
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    position: relative;
+    margin:0 0 0 0px;
+}
+.add-submenu{
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    position: relative;
+    margin:0 0 0 0px;
+}
+
+#outtree li > button {
+    background-color:transparent;
+    border:none;
+    display:inline-block;
+    position: relative;
+}
+

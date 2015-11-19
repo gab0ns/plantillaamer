@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Maestría en Sociedades Sustentables</title>
+<style>
+	#content{
+		width: 550px;
+		margin:0 auto 0 auto;
+	}
+
+	#logo {
+		/*margin:-2px 26px 0 26px;*/
+	}
+	
+	#content a{
+		font-family:Arial, Helvetica, sans-serif;
+		width:80px;
+		margin:0px auto 0 auto;
+		display:block;
+		text-decoration:none;
+		border:1px #41281B solid;
+		padding:5px;
+		text-align:center;
+		color:#41281B;
+	}
+</style>
+<script src="js/three.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="canvas"></div>
+        <a href="index3.html">Ir Menú</a>
+    </div>
+    
+<script>
+	var camera, scene, renderer;
+	var meshL,meshR,meshM,meshT,mesh,i = 0;
+
+	init();
+	animate();
+
+	function init() {
+		//Render
+		renderer = new THREE.WebGLRenderer({ antialias: true });
+		renderer.setSize(550, 531);
+		renderer.setClearColor(0xffffff, 1);
+		document.getElementById("canvas").appendChild(renderer.domElement);
+		
+		//Camara
+		camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+		camera.position.y = 0;
+		camera.position.z = 200;
+ 
+		//Escena
+		scene = new THREE.Scene();
+		
+		//Plano I
+		meshL = new THREE.Mesh(new THREE.PlaneGeometry(100,30), new THREE.MeshBasicMaterial({color:0x000000}));
+		meshL.material.side = THREE.DoubleSide;
+		scene.add(meshL);
+		
+		//Plano D
+		meshR = new THREE.Mesh(new THREE.PlaneGeometry(100,30), new THREE.MeshNormalMaterial());
+		meshR.position.x = 100;
+		meshR.material.side = THREE.DoubleSide;
+		meshR.applyMatrix( new THREE.Matrix4().makeTranslation(0, 10, 0) );
+		scene.add(meshR);
+		
+		//meshR.rotation.y = 90;
+
+		//var axis = new THREE.Vector3( 0, 1, 0 );
+		//var angle = Math.PI*(250) / 180;
+		//var matrix = new THREE.Matrix4().makeRotationAxis( axis, angle );
+
+        //vector.applyMatrix4( matrix );
+
+
+		//meshR.rotateOnAxis(axis,angle);
+		
+		renderer.render( scene, camera );
+	}
+
+	function animate() {
+		requestAnimationFrame(animate);
+		meshL.rotation.y += 0.02;
+		//meshR.rotation.y -= 0.02;
+		var axis = new THREE.Vector3( 1, 0, 0 );
+		var angle = Math.PI*(i) / 180;
+		i++
+		if (i == 360)
+			i = 0;
+		meshR.rotateOnAxis(axis,angle);
+		renderer.render( scene, camera );
+	}
+</script>
+</body>
+</html>

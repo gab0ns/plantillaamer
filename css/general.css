@@ -1,0 +1,30 @@
+#logo img {
+    position: absolute;
+    max-width: 500px;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.delete{
+    background-color:transparent;
+    border:none;
+    color:#f00;
+    font-weight:600;
+    font-size:1em;
+}
+
+.delete:hover{
+    color:#E13300;
+}
+
+.add-menu{
+    background-color:transparent;
+    border:none;
+    color: #4eb305;
+    font-weight:600;
+    font-size:1.2em;
+    cursor:pointer;
+}
+
+.add-menu:hover{
+    color:#005702;
+}

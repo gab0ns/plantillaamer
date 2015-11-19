@@ -1,0 +1,20 @@
+#content{
+    width: 550px;
+    margin:0 auto 0 auto;
+}
+
+#logo {
+        /*margin:-2px 26px 0 26px;*/
+}
+
+#content a{
+    font-family:Arial, Helvetica, sans-serif;
+    width:80px;
+    margin:0px auto 0 auto;
+    display:block;
+    text-decoration:none;
+    border:1px #41281B solid;
+    padding:5px;
+    text-align:center;
+    color:#41281B;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/fabric.all.min.js"></script>
+<style>
+	#content {
+		margin:0 auto 0 auto;
+		width:800px;
+	}
+	#c {
+		/*background-color:#dcdcdc;*/
+	}
+</style>
+<script>
+	$(document).on('ready',function(){
+		var canvas = new fabric.Canvas('c');
+		canvas.backgroundColor = 'white';
+		
+		var lineas,nombre,mano,tallo,ramas,hojas;
+		
+		//fabric.loadSVGFromURL('lineas.svg', function(lines) { lineas = lines; });
+		//fabric.loadSVGFromURL('nombre.svg', function(name) { nombre = new fabric.PathGroup(name, { left: 350, top: 350 }); });
+		//fabric.loadSVGFromURL('hojas.svg', function(leafs) { hojas = leafs; });
+		var i,j,k;
+		
+		fabric.Image.fromURL('images/logo.png', function(img) {
+
+		  canvas.add(img.scale(0.25));
+		  img.on('moving', function() {
+		  	console.log('algo');
+		  });
+		});
+		
+		//nombre();
+		function nombre(){
+			console.log('lineas:' + nombre.length);
+			var rect = new fabric.Rect({
+			  left: 350,
+			  top: 410,
+			  fill: 'white',
+			  width: 300,
+			  height: 95
+			});
+			canvas.add(rect);
+			
+			//fabric.Image.fromURL('nombre.png', function(nombre) {
+			fabric.loadSVGFromURL('lineas.svg', function(lines) {
+				for(var i = 0; i < 2; i++){
+					var obj = lines[i];
+					var top;
+					if (i == 0)
+						top = 362;
+					else
+						top = 457;
+					obj.set({
+						left: 358,
+						top: top
+					});
+					obj.scale(0);
+					//obj.setFill('#f00');
+					canvas.add(obj);
+				}
+			});
+			
+			fabric.loadSVGFromURL('nombre.svg', function(objects) {
+				nombre = new fabric.PathGroup(objects, {
+					 left: 350, top: 350
+				});
+				nombre.scale(0);
+				canvas.add(nombre);
+				
+				fabric.util.animate({
+					startValue: 0,
+					endValue: 0.7,
+					duration: 1000,
+					onChange: function(value) {
+						canvas.item(1).scale(value);
+						canvas.item(2).scale(value);
+						nombre.scale(value);
+						canvas.renderAll();
+					},
+					onComplete: function() {
+						mano();
+					}
+				});
+			});
+		}
+		
+		function mano(){
+			fabric.loadSVGFromURL('mano.svg', function(mano) {				
+				for (i = 0;i < mano.length;i++){
+					var obj = mano[i];
+					if (i == 0){
+						obj.scale(0.7);
+					} else {
+						obj.scale(0.0);
+					}
+					obj.set({
+						left:350,
+						top:350
+					});
+					canvas.add(obj);
+					obj.sendToBack();
+				}
+				
+				var rect = new fabric.Rect({
+						left: 350,
+						top: 500,
+						fill: 'white',
+						width: 100,
+						height: 100
+				});
+				canvas.add(rect);
+				rect.sendToBack();
+				
+				fabric.util.animate({
+					startValue: -100,
+					endValue: 350,
+					duration: 1000,
+					onChange: function(value) {
+					canvas.item(2).set({ top:value });
+					canvas.renderAll();
+				},
+				onComplete: function() {
+					circulo();
+				}
+				});
+			});
+		}
+		
+		function circulo(){
+			fabric.util.animate({
+				startValue: 0,
+				endValue: 0.7,
+				duration: 1000,
+				onChange: function(value) {
+					canvas.item(1).scale(value);
+					canvas.renderAll();
+				},
+				onComplete: function() {
+					tallo();
+				}
+			});
+		}
+		
+		function tallo(){
+			fabric.loadSVGFromURL('tallo.svg', function(objects) {
+				var tallo = new fabric.PathGroup(objects, {
+				 	left: 350,
+				  	top: 450,
+				});
+				tallo.scale(0.7);
+				canvas.add(tallo);
+				tallo.sendToBack();
+				
+				fabric.util.animate({
+					startValue: 450,
+					endValue: 350,
+					duration: 1000,
+					onChange: function(value) {
+						//canvas.item(0).set({top:value});
+						tallo.set({top:value});
+						canvas.renderAll();
+				},
+				onComplete: function() {
+					ramas();
+				}
+				});
+			});
+		}
+		
+		function ramas(){
+			fabric.loadSVGFromURL('ramas.svg', function(objects) {
+				var rama = new fabric.PathGroup(objects, {
+				 	left: 350,
+				  	top: 350,
+				});
+				rama.scale(0);
+				canvas.add(rama);
+				
+				fabric.util.animate({
+					startValue: 0,
+					endValue: 0.7,
+					duration: 400,
+					onChange: function(value) {
+						//canvas.item(0).set({top:value});
+						rama.scale(value);
+						canvas.renderAll();
+				},
+				onComplete: function() {
+					hojas();
+				}
+				});
+			});
+		}
+
+		//HOJAS
+		
+		function hojas(){
+			fabric.loadSVGFromURL('hojas.svg', function(objects) {
+				for (j = 0;j < objects.length;j++){
+					var obj = objects[j];
+					obj.scale(0.7);
+					obj.set({
+						left:j*400,
+						top:-100
+					});
+					canvas.add(obj);
+				}
+				k = 0;
+				var avance = 1;
+				setInterval(function(){
+				  if (k < objects.length){
+					  avance = avance + 1;
+					  limite = 350;
+					  objects[k].set({'top':limite,'left':limite});
+					  canvas.renderAll();
+					  k++;
+				  }
+				},1/1000);
+			});
+		}
+	});
+</script>
+</head>
+<body>
+	<div id="content">
+		<canvas id="c" width="700px" height="700px"></canvas>
+        <canvas class="upper-canvas"></canvas>
+	</div>
+</body>
+</html>

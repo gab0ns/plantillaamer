@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Maestría en Sociedades Sustentables</title>
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<link href="css/jquery-ui-1.10.3.custom.min_greenyellow.css" type="text/css" rel="stylesheet">
+<link href="css/principal.css" type="text/css" rel="stylesheet">
+</head>
+ <script>
+    $(function() {
+        $(document).tooltip({
+            track: true
+        });
+		
+		var inTree = false, visibleAlert = true;
+		
+		$('area').on('mouseenter',function(){
+			inTree = true;
+		});
+		
+		$('area').on('mouseleave',function(obj){
+			inTree = false;
+			visibleAlert = false;
+		});
+		
+		$(document).on('mousemove',function(mouse){
+			if (visibleAlert == true){
+				if (inTree == false){
+					$('#treeout').show('fast','linear',function(){
+						$('#treeout').css('left',mouse.pageX);
+						$('#treeout').css('top',mouse.pageY);
+					});
+				} else {
+					$('#treeout').hide('fast','linear',function(){
+						$('#treeout').css('left',mouse.pageX);
+						$('#treeout').css('top',mouse.pageY);
+					});
+				}
+			}
+		});
+    });
+</script>
+<body>
+    	<div id="content">
+        	<div id="logo">
+            	<img src="images/logo.png" width="100%" usemap="#treemap"/>
+            </div>
+
+            <map id="treemap" name="treemap">
+              <area shape="rect" coords="110,0,380,70" style="background-color:#999;" title="Inicio" href="index3.html" />
+              <area shape="rect" coords="90,70,400,145" style="background-color:#999;" title="Nosotros" href="index4.html" />
+              <area shape="rect" coords="110,145,380,220" style="background-color:#999;" title="Educación en Línea" href="index4_2.html" />
+			  <area shape="rect" coords="230,220,265,285" style="background-color:#999;" title="Plataforma" href="index4_3.html" />
+              <area shape="rect" coords="0,285,490,382" style="background-color:#999;" title="Maestría en Sociedades Sustentables" href="index4_4.html" />
+              <area shape="rect" coords="195,382,295,532" style="background-color:#999;" title="Contacto" href="index4_5.html" />
+            </map>
+            <div id="treeout">Ponga el cursor sobre el árbol</div>
+        </div>
+</body>
+</html>
